@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/iamtabrezkhan/react-generator.git"
+    "url": "git+https://github.com/iamtabrezkhan/awesome-react-generator.git"
   },
   "keywords": [
     "app",
@@ -29,11 +29,11 @@
   "author": "Tabrez Khan (https://github.com/iamtabrezkhan)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/iamtabrezkhan/react-generator/issues"
+    "url": "https://github.com/iamtabrezkhan/awesome-react-generator/issues"
   },
-  "homepage": "https://github.com/iamtabrezkhan/react-generator",
+  "homepage": "https://github.com/iamtabrezkhan/awesome-react-generator",
   "dependencies": {
-    "generate": "^0.14.0",
-    "yargs": "^15.3.1"
+    "generate": "0.14.0",
+    "yargs": "15.3.1"
   }
 }
