@@ -1,7 +1,7 @@
 <h1 align="center">Welcome to awesome-react-generator 👋</h1>
 <p>
   <a href="https://www.npmjs.com/package/awesome-react-generator" target="_blank">
-    <img alt="Version" src="https://img.shields.io/npm/v/react-generator.svg">
+    <img alt="Version" src="https://img.shields.io/npm/v/awesome-react-generator.svg">
   </a>
   <a href="https://github.com/iamtabrezkhan/awesome-react-generator#readme" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
@@ -10,7 +10,7 @@
     <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
   </a>
   <a href="https://github.com/iamtabrezkhan/awesome-react-generator/blob/master/LICENSE" target="_blank">
-    <img alt="License: MIT" src="https://img.shields.io/github/license/iamtabrezkhan/react-generator" />
+    <img alt="License: MIT" src="https://img.shields.io/github/license/iamtabrezkhan/awesome-react-generator" />
   </a>
   <a href="https://twitter.com/TabrezX" target="_blank">
     <img alt="Twitter: TabrezX" src="https://img.shields.io/twitter/follow/TabrezX.svg?style=social" />
