@@ -1,0 +1,39 @@
+{
+  "name": "react-generator",
+  "version": "0.0.1",
+  "description": "CLI application to generate React components, pages, modules etc",
+  "main": "index.js",
+  "bin": {
+    "rg": "bin/react-generator.js",
+    "react-generator": "bin/react-generator.js"
+  },
+  "scripts": {
+    "test": "echo \"No test specified\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamtabrezkhan/react-generator.git"
+  },
+  "keywords": [
+    "app",
+    "cli",
+    "boilerplate",
+    "react",
+    "react cli",
+    "facebook react",
+    "generate components",
+    "templates",
+    "project",
+    "development"
+  ],
+  "author": "Tabrez Khan (https://github.com/iamtabrezkhan)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iamtabrezkhan/react-generator/issues"
+  },
+  "homepage": "https://github.com/iamtabrezkhan/react-generator",
+  "dependencies": {
+    "generate": "^0.14.0",
+    "yargs": "^15.3.1"
+  }
+}
