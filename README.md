@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to react-generator-cli 👋</h1>
+<h1 align="center">Welcome to awesome-react-generator 👋</h1>
 <p>
   <a href="https://www.npmjs.com/package/react-generator" target="_blank">
     <img alt="Version" src="https://img.shields.io/npm/v/react-generator.svg">
@@ -17,14 +17,14 @@
   </a>
 </p>
 
-> No more clicking around to create files in your react project! React Generator is Command Line Tool that let's you generate component files/folders without leaving your terminal.
+> No more clicking around to create files in your react project! Awesome React Generator is Command Line Tool that let's you generate component files/folders without leaving your terminal.
 
 ### 🏠 [Homepage](https://github.com/iamtabrezkhan/react-generator)
 
 ## Install
 
 ```sh
-npm install react-generator-cli -g
+npm install awesome-react-generator -g
 ```
 
 ## Usage
