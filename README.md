@@ -1,6 +1,6 @@
 <h1 align="center">Welcome to awesome-react-generator 👋</h1>
 <p>
-  <a href="https://www.npmjs.com/package/react-generator" target="_blank">
+  <a href="https://www.npmjs.com/package/awesome-react-generator" target="_blank">
     <img alt="Version" src="https://img.shields.io/npm/v/react-generator.svg">
   </a>
   <a href="https://github.com/iamtabrezkhan/react-generator#readme" target="_blank">
