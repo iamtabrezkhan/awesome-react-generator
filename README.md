@@ -20,7 +20,7 @@
 > No more clicking around to create files in your react project! Awesome React Generator is Command Line Tool that let's you generate component files/folders without leaving your terminal.
 
 <p align="center">
-  <img src="demo.git">
+  <img src="demo.gif">
 </p>
 
 ### 🏠 [Homepage](https://github.com/iamtabrezkhan/awesome-react-generator)
