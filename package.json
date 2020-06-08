@@ -27,7 +27,7 @@
     "development"
   ],
   "author": "Tabrez Khan (https://github.com/iamtabrezkhan)",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/iamtabrezkhan/awesome-react-generator/issues"
   },
