@@ -1,5 +1,5 @@
 {
-  "name": "react-generator",
+  "name": "react-generator-cli",
   "version": "0.0.1",
   "description": "CLI application to generate React components, pages, modules etc",
   "main": "index.js",

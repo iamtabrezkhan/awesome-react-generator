@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to react-generator 👋</h1>
+<h1 align="center">Welcome to react-generator-cli 👋</h1>
 <p>
   <a href="https://www.npmjs.com/package/react-generator" target="_blank">
     <img alt="Version" src="https://img.shields.io/npm/v/react-generator.svg">
@@ -24,7 +24,7 @@
 ## Install
 
 ```sh
-npm install react-generator -g
+npm install react-generator-cli -g
 ```
 
 ## Usage
