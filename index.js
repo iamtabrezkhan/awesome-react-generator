@@ -1,19 +1,19 @@
 const utils = require("./lib/utils");
-const Runner = require("./lib/runner");
+const Runner = require("awesome-task-runner");
 const path = require("path");
 
 class ReactGenerator {
   constructor() {
-    this.runner = new Runner();
+    this.runner = new Runner({ silent: true });
     this.initTasks(this.runner);
   }
-  run = (task, data) => {
+  run(task, data) {
     this.runner.set(data);
     this.runner.run(["get:template", task, "clean"], (err) => {
       if (err) return console.log(err);
     });
-  };
-  initTasks = (runner) => {
+  }
+  initTasks(runner) {
     // =================================================
     // ============== component task ===================
     runner.task("component", (done) => {
@@ -105,7 +105,7 @@ class ReactGenerator {
       utils.createFile(fileDest, `${fileName}${ext}`, fileData);
       done();
     });
-  };
+  }
 }
 
 module.exports = ReactGenerator;
