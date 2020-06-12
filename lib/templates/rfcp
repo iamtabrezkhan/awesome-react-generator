@@ -1,0 +1,10 @@
+import React from "react";
+import PropTypes from "prop-types";
+
+function <<<cmpname>>>(props) {
+  return <div><<<cmpname>>> works!</div>;
+}
+
+<<<cmpname>>>.propTypes = {};
+
+export default <<<cmpname>>>;
