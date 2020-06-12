@@ -37,10 +37,6 @@ npm install awesome-react-generator -g
 rg component rfc hello-world
 ```
 
-## Commands
-
-Checkout the commands [here](docs/CLI.md)
-
 ## Help
 
 ```sh

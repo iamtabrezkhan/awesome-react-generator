@@ -67,18 +67,31 @@ class ReactGenerator {
           cssDone();
         });
       });
-      runner.run(
-        [
-          "component:init",
-          "component:folder",
-          "component:file",
-          "component:css",
-        ],
-        (err) => {
+      runner.task("component:test", (testDone) => {
+        runner.set({
+          ext: ".test.js",
+          fileData: "",
+        });
+        runner.run(["create:file"], (err) => {
           if (err) throw err;
-          done();
-        }
-      );
+          testDone();
+        });
+      });
+      const options = runner.get("options");
+      const { test } = options;
+      const tasks = [
+        "component:init",
+        "component:folder",
+        "component:file",
+        "component:css",
+      ];
+      if (test) {
+        tasks.push("component:test");
+      }
+      runner.run(tasks, (err) => {
+        if (err) throw err;
+        done();
+      });
     });
     // =================================================
 
