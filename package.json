@@ -33,6 +33,7 @@
   },
   "homepage": "https://github.com/iamtabrezkhan/awesome-react-generator",
   "dependencies": {
+    "ansi-colors": "^4.1.1",
     "awesome-task-runner": "0.0.5",
     "yargs": "15.3.1"
   },

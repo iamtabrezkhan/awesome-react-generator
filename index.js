@@ -1,6 +1,7 @@
 const utils = require("./lib/utils");
 const Runner = require("awesome-task-runner");
 const path = require("path");
+const colors = require("ansi-colors");
 
 class ReactGenerator {
   constructor() {
@@ -112,11 +113,17 @@ class ReactGenerator {
     runner.task("create:folder", (done) => {
       const { folderName, folderDest } = runner.data;
       utils.createFolder(folderDest, folderName);
+      console.log(
+        colors.greenBright(`Created: ${path.join(folderDest, folderName)}`)
+      );
       done();
     });
     runner.task("create:file", (done) => {
       const { fileName, fileDest, fileData, ext } = runner.data;
       utils.createFile(fileDest, `${fileName}${ext}`, fileData);
+      console.log(
+        colors.greenBright(`Created: ${path.join(fileDest, fileName + ext)}`)
+      );
       done();
     });
   }
