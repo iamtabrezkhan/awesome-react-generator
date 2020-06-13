@@ -31,3 +31,6 @@ $ rg component <type> <componentName> [css] [test]
       - `true`
       - `false`
     - default value: `false`
+  - `--cwd` - pass a string if you want to change the current working directory.
+    - acceptable values:
+      - string

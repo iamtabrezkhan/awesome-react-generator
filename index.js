@@ -26,18 +26,19 @@ class ReactGenerator {
           template,
           pascalCaseName
         );
+        const i = templateAfterAddingName.indexOf("\n");
+        const firstLine = templateAfterAddingName.substring(0, i + 1);
+        const rest = templateAfterAddingName.substring(i + 1);
+        let importCssLine = `import Classes from "./${pascalCaseName}.css";\n`;
         if (css === "modular") {
-          const i = templateAfterAddingName.indexOf("\n");
-          const firstLine = templateAfterAddingName.substring(0, i + 1);
-          const rest = templateAfterAddingName.substring(i + 1);
-          const importCssLine = `import Classes from "./${pascalCaseName}.module.css";\n`;
-          templateAfterAddingName = firstLine + importCssLine + rest;
+          importCssLine = `import Classes from "./${pascalCaseName}.module.css";\n`;
         }
+        templateAfterAddingName = firstLine + importCssLine + rest;
         runner.set({
           folderName: pascalCaseName,
-          folderDest: process.cwd(),
+          folderDest: utils.resolvePath(cwd),
           fileName: pascalCaseName,
-          fileDest: path.join(process.cwd(), pascalCaseName),
+          fileDest: path.join(utils.resolvePath(cwd), pascalCaseName),
           fileData: templateAfterAddingName,
           ext: ".js",
         });
