@@ -17,6 +17,7 @@ $ rg component <type> <componentName> [css] [test]
       - `rafc` - react arrow functional component
       - `rafcp` - react arrow functional component with proptypes
       - `rafcredux` - react arrow functional component with connected redux
+      - `rfcredux` - react functional component with connected redux
       - **more types coming soon**
   - `componentName` - component name in kebab-case, will be converted to PascalCase
     - acceptable values:
