@@ -1,4 +1,5 @@
 demo.gif
 docs/
 .eslintrc.js
-.prettierrc.js 
+.prettierrc.js
+test/
