@@ -14,6 +14,8 @@ $ rg component <type> <componentName> [css] [test]
       - `rfc` - react functional component
       - `rcc` - react class component
       - `rfcp` - react functional component with proptypes
+      - `rafc` - react arrow functional component
+      - `rafcp` - react arrow functional component with proptypes
       - **more types coming soon**
   - `componentName` - component name in kebab-case, will be converted to PascalCase
     - acceptable values:
