@@ -579,6 +579,125 @@ describe("component command", () => {
       ]);
     });
   });
+  // ========================================
+  describe(`rg c rafcredux ${componentName}`, () => {
+    afterEach(() => {
+      utils.removeFolder(tempDir, pascalName);
+    });
+    // ======================================
+    it("should create correct number of files/folders", () => {
+      const nodeProcess = spawnSync(
+        "node",
+        [rg, "c", "rafcredux", componentName],
+        {
+          cwd: tempDir,
+        }
+      );
+      const tempContents = utils.getDirContents(tempDir);
+      assert.equal(tempContents.length, 1);
+      const componentContents = utils.getDirContents(
+        `${tempDir}/${pascalName}`
+      );
+      assert.equal(componentContents.length, 2);
+    });
+    it("should create correct name of files/folders", () => {
+      const nodeProcess = spawnSync(
+        "node",
+        [rg, "c", "rafcredux", componentName],
+        {
+          cwd: tempDir,
+        }
+      );
+      const tempContents = utils.getDirContents(tempDir);
+      assert.deepEqual(tempContents, [pascalName]);
+      const componentContents = utils.getDirContents(
+        `${tempDir}/${pascalName}`
+      );
+      expect(componentContents).to.deep.equalInAnyOrder([
+        componentFileName,
+        cssFileNameNormal,
+      ]);
+    });
+  });
+    // ========================================
+  describe(`rg c rafcredux ${componentName} --css modular`, () => {
+    afterEach(() => {
+      utils.removeFolder(tempDir, pascalName);
+    });
+    it("should create correct number of files/folders", () => {
+      const nodeProcess = spawnSync(
+        "node",
+        [rg, "c", "rafcredux", componentName, "--css", "modular"],
+        {
+          cwd: tempDir,
+        }
+      );
+      const tempContents = utils.getDirContents(tempDir);
+      assert.equal(tempContents.length, 1);
+      const componentContents = utils.getDirContents(
+        `${tempDir}/${pascalName}`
+      );
+      assert.equal(componentContents.length, 2);
+    });
+    it("should create correct name of files/folders", () => {
+      const nodeProcess = spawnSync(
+        "node",
+        [rg, "c", "rafcredux", componentName, "--css", "modular"],
+        {
+          cwd: tempDir,
+        }
+      );
+      const tempContents = utils.getDirContents(tempDir);
+      assert.deepEqual(tempContents, [pascalName]);
+      const componentContents = utils.getDirContents(
+        `${tempDir}/${pascalName}`
+      );
+      expect(componentContents).to.deep.equalInAnyOrder([
+        componentFileName,
+        cssFileNameModular,
+      ]);
+    });
+  });
+  // ========================================
+  describe(`rg c rafcredux ${componentName} --test`, () => {
+    afterEach(() => {
+      utils.removeFolder(tempDir, pascalName);
+    });
+    it("should create correct number of files/folders", () => {
+      const nodeProcess = spawnSync(
+        "node",
+        [rg, "c", "rafcredux", componentName, "--test"],
+        {
+          cwd: tempDir,
+        }
+      );
+      const tempContents = utils.getDirContents(tempDir);
+      assert.equal(tempContents.length, 1);
+      const componentContents = utils.getDirContents(
+        `${tempDir}/${pascalName}`
+      );
+      assert.equal(componentContents.length, 3);
+    });
+    it("should create correct name of files/folders", () => {
+      const nodeProcess = spawnSync(
+        "node",
+        [rg, "c", "rafcredux", componentName, "--test"],
+        {
+          cwd: tempDir,
+        }
+      );
+      const tempContents = utils.getDirContents(tempDir);
+      assert.deepEqual(tempContents, [pascalName]);
+      const componentContents = utils.getDirContents(
+        `${tempDir}/${pascalName}`
+      );
+      expect(componentContents).to.deep.equalInAnyOrder([
+        componentFileName,
+        cssFileNameNormal,
+        testFileName,
+      ]);
+    });
+  });
 });
 
 after("remove temp folder", () => {
