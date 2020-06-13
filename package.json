@@ -1,6 +1,6 @@
 {
   "name": "awesome-react-generator",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "CLI application to generate React components, pages, modules etc",
   "main": "index.js",
   "bin": {
