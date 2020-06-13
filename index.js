@@ -21,7 +21,7 @@ class ReactGenerator {
         const { fileName, template } = runner.data;
         const pascalCaseName = utils.kebabCaseToPascalCase(fileName);
         const options = runner.get("options");
-        const { css } = options;
+        const { css, cwd } = options;
         let templateAfterAddingName = utils.setComponentName(
           template,
           pascalCaseName
