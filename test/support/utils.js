@@ -16,6 +16,5 @@ exports.getDirContents = (dir) => {
 };
 
 exports.getDirContentsCount = (dir) => {
-  const directory = fs.readdirSync(dir);
-  return directory.length;
+  return this.getDirContents(dir).length;
 };
