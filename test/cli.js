@@ -58,14 +58,14 @@ describe("component command", () => {
     });
   });
   // ========================================
-  describe(`rg c rfc ${componentName} --css modular`, () => {
+  describe(`rg c rfc ${componentName} --cssType modular`, () => {
     afterEach(() => {
       support.removeFolder(tempDir, pascalName);
     });
     it("should create correct number of files/folders", () => {
       const nodeProcess = spawnSync(
         "node",
-        [rg, "c", "rfc", componentName, "--css", "modular"],
+        [rg, "c", "rfc", componentName, "--cssType", "modular"],
         {
           cwd: tempDir,
         }
@@ -80,7 +80,7 @@ describe("component command", () => {
     it("should create correct name of files/folders", () => {
       const nodeProcess = spawnSync(
         "node",
-        [rg, "c", "rfc", componentName, "--css", "modular"],
+        [rg, "c", "rfc", componentName, "--cssType", "modular"],
         {
           cwd: tempDir,
         }
@@ -169,14 +169,14 @@ describe("component command", () => {
     });
   });
   // ========================================
-  describe(`rg c rcc ${componentName} --css modular`, () => {
+  describe(`rg c rcc ${componentName} --cssType modular`, () => {
     afterEach(() => {
       support.removeFolder(tempDir, pascalName);
     });
     it("should create correct number of files/folders", () => {
       const nodeProcess = spawnSync(
         "node",
-        [rg, "c", "rcc", componentName, "--css", "modular"],
+        [rg, "c", "rcc", componentName, "--cssType", "modular"],
         {
           cwd: tempDir,
         }
@@ -191,7 +191,7 @@ describe("component command", () => {
     it("should create correct name of files/folders", () => {
       const nodeProcess = spawnSync(
         "node",
-        [rg, "c", "rcc", componentName, "--css", "modular"],
+        [rg, "c", "rcc", componentName, "--cssType", "modular"],
         {
           cwd: tempDir,
         }
@@ -280,14 +280,14 @@ describe("component command", () => {
     });
   });
   // ========================================
-  describe(`rg c rfcp ${componentName} --css modular`, () => {
+  describe(`rg c rfcp ${componentName} --cssType modular`, () => {
     afterEach(() => {
       support.removeFolder(tempDir, pascalName);
     });
     it("should create correct number of files/folders", () => {
       const nodeProcess = spawnSync(
         "node",
-        [rg, "c", "rfcp", componentName, "--css", "modular"],
+        [rg, "c", "rfcp", componentName, "--cssType", "modular"],
         {
           cwd: tempDir,
         }
@@ -302,7 +302,7 @@ describe("component command", () => {
     it("should create correct name of files/folders", () => {
       const nodeProcess = spawnSync(
         "node",
-        [rg, "c", "rfcp", componentName, "--css", "modular"],
+        [rg, "c", "rfcp", componentName, "--cssType", "modular"],
         {
           cwd: tempDir,
         }
@@ -391,14 +391,14 @@ describe("component command", () => {
     });
   });
   // ========================================
-  describe(`rg c rafc ${componentName} --css modular`, () => {
+  describe(`rg c rafc ${componentName} --cssType modular`, () => {
     afterEach(() => {
       support.removeFolder(tempDir, pascalName);
     });
     it("should create correct number of files/folders", () => {
       const nodeProcess = spawnSync(
         "node",
-        [rg, "c", "rafc", componentName, "--css", "modular"],
+        [rg, "c", "rafc", componentName, "--cssType", "modular"],
         {
           cwd: tempDir,
         }
@@ -413,7 +413,7 @@ describe("component command", () => {
     it("should create correct name of files/folders", () => {
       const nodeProcess = spawnSync(
         "node",
-        [rg, "c", "rafc", componentName, "--css", "modular"],
+        [rg, "c", "rafc", componentName, "--cssType", "modular"],
         {
           cwd: tempDir,
         }
@@ -502,14 +502,14 @@ describe("component command", () => {
     });
   });
   // ========================================
-  describe(`rg c rafcp ${componentName} --css modular`, () => {
+  describe(`rg c rafcp ${componentName} --cssType modular`, () => {
     afterEach(() => {
       support.removeFolder(tempDir, pascalName);
     });
     it("should create correct number of files/folders", () => {
       const nodeProcess = spawnSync(
         "node",
-        [rg, "c", "rafcp", componentName, "--css", "modular"],
+        [rg, "c", "rafcp", componentName, "--cssType", "modular"],
         {
           cwd: tempDir,
         }
@@ -524,7 +524,7 @@ describe("component command", () => {
     it("should create correct name of files/folders", () => {
       const nodeProcess = spawnSync(
         "node",
-        [rg, "c", "rafcp", componentName, "--css", "modular"],
+        [rg, "c", "rafcp", componentName, "--cssType", "modular"],
         {
           cwd: tempDir,
         }
@@ -621,14 +621,14 @@ describe("component command", () => {
     });
   });
   // ========================================
-  describe(`rg c rafcredux ${componentName} --css modular`, () => {
+  describe(`rg c rafcredux ${componentName} --cssType modular`, () => {
     afterEach(() => {
       support.removeFolder(tempDir, pascalName);
     });
     it("should create correct number of files/folders", () => {
       const nodeProcess = spawnSync(
         "node",
-        [rg, "c", "rafcredux", componentName, "--css", "modular"],
+        [rg, "c", "rafcredux", componentName, "--cssType", "modular"],
         {
           cwd: tempDir,
         }
@@ -643,7 +643,7 @@ describe("component command", () => {
     it("should create correct name of files/folders", () => {
       const nodeProcess = spawnSync(
         "node",
-        [rg, "c", "rafcredux", componentName, "--css", "modular"],
+        [rg, "c", "rafcredux", componentName, "--cssType", "modular"],
         {
           cwd: tempDir,
         }
@@ -740,14 +740,14 @@ describe("component command", () => {
     });
   });
   // ========================================
-  describe(`rg c rfcredux ${componentName} --css modular`, () => {
+  describe(`rg c rfcredux ${componentName} --cssType modular`, () => {
     afterEach(() => {
       support.removeFolder(tempDir, pascalName);
     });
     it("should create correct number of files/folders", () => {
       const nodeProcess = spawnSync(
         "node",
-        [rg, "c", "rfcredux", componentName, "--css", "modular"],
+        [rg, "c", "rfcredux", componentName, "--cssType", "modular"],
         {
           cwd: tempDir,
         }
@@ -762,7 +762,7 @@ describe("component command", () => {
     it("should create correct name of files/folders", () => {
       const nodeProcess = spawnSync(
         "node",
-        [rg, "c", "rfcredux", componentName, "--css", "modular"],
+        [rg, "c", "rfcredux", componentName, "--cssType", "modular"],
         {
           cwd: tempDir,
         }
@@ -859,14 +859,14 @@ describe("component command", () => {
     });
   });
   // ========================================
-  describe(`rg c rfcreduxp ${componentName} --css modular`, () => {
+  describe(`rg c rfcreduxp ${componentName} --cssType modular`, () => {
     afterEach(() => {
       support.removeFolder(tempDir, pascalName);
     });
     it("should create correct number of files/folders", () => {
       const nodeProcess = spawnSync(
         "node",
-        [rg, "c", "rfcreduxp", componentName, "--css", "modular"],
+        [rg, "c", "rfcreduxp", componentName, "--cssType", "modular"],
         {
           cwd: tempDir,
         }
@@ -881,7 +881,7 @@ describe("component command", () => {
     it("should create correct name of files/folders", () => {
       const nodeProcess = spawnSync(
         "node",
-        [rg, "c", "rfcreduxp", componentName, "--css", "modular"],
+        [rg, "c", "rfcreduxp", componentName, "--cssType", "modular"],
         {
           cwd: tempDir,
         }

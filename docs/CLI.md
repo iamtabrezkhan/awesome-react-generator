@@ -24,11 +24,17 @@ $ rg component <type> <componentName> [css] [test]
     - acceptable values:
       - any type as long as it is kebab-case
 - **Options:**
-  - `--css` - type of css file
+  - `--css` - css extension type
+    - acceptable values:
+      - `css` - a general css file with a .css extension
+      - `less` - a general css file with a .less extension
+      - `scss` - a general css file with a .scss extension
+      - `sass` - a general css file with a .sass extension
+    - default value: `css`
+  - `--cssType` - type of css file
     - acceptable values:
       - `normal` - a general css file
       - `modular` - modular css files to allow scoping of css
-    - default value: `normal`
   - `--test` - decides if you want to generate a test file along with the component files.
     - acceptable values:
       - `true`
