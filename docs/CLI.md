@@ -29,7 +29,6 @@ $ rg component <type> <componentName> [css] [test]
       - `css` - a general css file with a .css extension
       - `less` - a general css file with a .less extension
       - `scss` - a general css file with a .scss extension
-      - `sass` - a general css file with a .sass extension
     - default value: `css`
   - `--cssType` - type of css file
     - acceptable values:
