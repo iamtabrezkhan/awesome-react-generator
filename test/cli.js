@@ -811,6 +811,125 @@ describe("component command", () => {
     });
   });
   // ========================================
+  describe(`rg c rafcreduxp ${componentName}`, () => {
+    afterEach(() => {
+      support.removeFolder(tempDir, pascalName);
+    });
+    // ======================================
+    it("should create correct number of files/folders", () => {
+      const nodeProcess = spawnSync(
+        "node",
+        [rg, "c", "rafcreduxp", componentName],
+        {
+          cwd: tempDir,
+        }
+      );
+      const tempContents = support.getDirContents(tempDir);
+      assert.equal(tempContents.length, 1);
+      const componentContents = support.getDirContents(
+        `${tempDir}/${pascalName}`
+      );
+      assert.equal(componentContents.length, 2);
+    });
+    it("should create correct name of files/folders", () => {
+      const nodeProcess = spawnSync(
+        "node",
+        [rg, "c", "rafcreduxp", componentName],
+        {
+          cwd: tempDir,
+        }
+      );
+      const tempContents = support.getDirContents(tempDir);
+      assert.deepEqual(tempContents, [pascalName]);
+      const componentContents = support.getDirContents(
+        `${tempDir}/${pascalName}`
+      );
+      expect(componentContents).to.deep.equalInAnyOrder([
+        componentFileName,
+        cssFileNameNormal,
+      ]);
+    });
+  });
+  // ========================================
+  describe(`rg c rafcreduxp ${componentName} --cssType modular`, () => {
+    afterEach(() => {
+      support.removeFolder(tempDir, pascalName);
+    });
+    it("should create correct number of files/folders", () => {
+      const nodeProcess = spawnSync(
+        "node",
+        [rg, "c", "rafcreduxp", componentName, "--cssType", "modular"],
+        {
+          cwd: tempDir,
+        }
+      );
+      const tempContents = support.getDirContents(tempDir);
+      assert.equal(tempContents.length, 1);
+      const componentContents = support.getDirContents(
+        `${tempDir}/${pascalName}`
+      );
+      assert.equal(componentContents.length, 2);
+    });
+    it("should create correct name of files/folders", () => {
+      const nodeProcess = spawnSync(
+        "node",
+        [rg, "c", "rafcreduxp", componentName, "--cssType", "modular"],
+        {
+          cwd: tempDir,
+        }
+      );
+      const tempContents = support.getDirContents(tempDir);
+      assert.deepEqual(tempContents, [pascalName]);
+      const componentContents = support.getDirContents(
+        `${tempDir}/${pascalName}`
+      );
+      expect(componentContents).to.deep.equalInAnyOrder([
+        componentFileName,
+        cssFileNameModular,
+      ]);
+    });
+  });
+  // ========================================
+  describe(`rg c rafcreduxp ${componentName} --test`, () => {
+    afterEach(() => {
+      support.removeFolder(tempDir, pascalName);
+    });
+    it("should create correct number of files/folders", () => {
+      const nodeProcess = spawnSync(
+        "node",
+        [rg, "c", "rafcreduxp", componentName, "--test"],
+        {
+          cwd: tempDir,
+        }
+      );
+      const tempContents = support.getDirContents(tempDir);
+      assert.equal(tempContents.length, 1);
+      const componentContents = support.getDirContents(
+        `${tempDir}/${pascalName}`
+      );
+      assert.equal(componentContents.length, 3);
+    });
+    it("should create correct name of files/folders", () => {
+      const nodeProcess = spawnSync(
+        "node",
+        [rg, "c", "rafcreduxp", componentName, "--test"],
+        {
+          cwd: tempDir,
+        }
+      );
+      const tempContents = support.getDirContents(tempDir);
+      assert.deepEqual(tempContents, [pascalName]);
+      const componentContents = support.getDirContents(
+        `${tempDir}/${pascalName}`
+      );
+      expect(componentContents).to.deep.equalInAnyOrder([
+        componentFileName,
+        cssFileNameNormal,
+        testFileName,
+      ]);
+    });
+  });
+  // ========================================
   describe(`rg c rfcredux ${componentName}`, () => {
     afterEach(() => {
       support.removeFolder(tempDir, pascalName);

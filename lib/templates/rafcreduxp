@@ -1,0 +1,17 @@
+import React from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+
+const <<<cmpname>>> = () => {
+  return <div><<<cmpname>>> works!</div>;
+};
+
+<<<cmpname>>>.propTypes = {
+  prop: PropTypes,
+};
+
+const mapStateToProps = (state) => ({});
+
+const mapDispatchToProps = {};
+
+export default connect(mapStateToProps, mapDispatchToProps)(<<<cmpname>>>);
