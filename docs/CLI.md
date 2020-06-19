@@ -13,6 +13,7 @@ $ rg component <type> <componentName> [css] [test]
     - acceptable values:
       - `rfc` - react functional component
       - `rcc` - react class component
+      - `rccp` - react class component with proptypes
       - `rfcp` - react functional component with proptypes
       - `rafc` - react arrow functional component
       - `rafcp` - react arrow functional component with proptypes
