@@ -1,0 +1,12 @@
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+
+class <<<cmpname>>> extends Component {
+  render() {
+    return <div><<<cmpname>>> works!</div>;
+  }
+}
+
+<<<cmpname>>>.propTypes = {};
+
+export default <<<cmpname>>>;
