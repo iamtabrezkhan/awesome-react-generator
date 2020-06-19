@@ -17,6 +17,7 @@ $ rg component <type> <componentName> [css] [test]
       - `rafc` - react arrow functional component
       - `rafcp` - react arrow functional component with proptypes
       - `rafcredux` - react arrow functional component with connected redux
+      - `rafcreduxp` - react arrow functional component with connected redux & proptypes
       - `rfcredux` - react functional component with connected redux
       - `rfcreduxp` --> react functional component with connected redux & proptypes
       - **more types coming soon**
