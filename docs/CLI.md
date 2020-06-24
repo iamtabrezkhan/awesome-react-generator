@@ -5,7 +5,7 @@
 This will create a folder in the current working directory with the provided component name and generate component files.
 
 ```bash
-$ rg component <type> <componentName> [css] [test]
+$ rg component <type> <componentName> [css] [test] [ext]
 ```
 
 - **Arguments:**
@@ -44,3 +44,8 @@ $ rg component <type> <componentName> [css] [test]
   - `--cwd` - pass a string if you want to change the current working directory.
     - acceptable values:
       - string
+  - `--ext` - component file extension type
+    - acceptable values:
+      - `js`
+      - `jsx`
+    - default value: `js`
