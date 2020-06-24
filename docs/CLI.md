@@ -5,7 +5,7 @@
 This will create a folder in the current working directory with the provided component name and generate component files.
 
 ```bash
-$ rg component <type> <componentName> [css] [test] [ext]
+$ rg component <type> <componentName> [options]
 ```
 
 - **Arguments:**
