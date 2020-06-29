@@ -41,6 +41,13 @@ $ rg component <type> <componentName> [options]
       - `true`
       - `false`
     - default value: `false`
+  - `--testExt` - test file extension type
+    - acceptable values:
+      - `test-js`
+      - `test-tsx`
+      - `spec-js`
+      - `spec-tsx`
+    - default value: `test-js`
   - `--cwd` - pass a string if you want to change the current working directory.
     - acceptable values:
       - string
