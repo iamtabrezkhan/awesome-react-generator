@@ -22,6 +22,8 @@ $ rg component <type> <componentName> [options]
       - `rfcredux` - react functional component with connected redux
       - `rfcreduxp` - react functional component with connected redux & proptypes
       - **more types coming soon**
+        typescript
+      - `rafctsx` - react arrow functional component with typescript
   - `componentName` - component name in kebab-case, will be converted to PascalCase
     - acceptable values:
       - any type as long as it is kebab-case
@@ -48,4 +50,5 @@ $ rg component <type> <componentName> [options]
     - acceptable values:
       - `js`
       - `jsx`
+      - `tsx`
     - default value: `js`

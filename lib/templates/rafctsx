@@ -1,0 +1,10 @@
+import React from "react";
+
+interface ButtonProps {}
+
+
+const <<<cmpname>>>: React.FC<<<<cmpname>>>Props> = ({}): ReactElement => {return(
+    <div><<<cmpname>>> works!</div>;
+)}
+
+export default <<<cmpname>>>;
