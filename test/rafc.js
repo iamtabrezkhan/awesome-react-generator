@@ -44,7 +44,7 @@ describe("component command", () => {
       const nodeProcess1 = spawnSync("pwd", {
         cwd: tempDir,
       });
-      console.log("CWD: ", nodeProcess1.stdout);
+      console.log("CWD: ", nodeProcess1.stdout.toString());
       const tempContents = support.getDirContents(tempDir);
       assert.equal(tempContents.length, 1);
       const componentContents = support.getDirContents(
