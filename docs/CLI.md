@@ -55,6 +55,5 @@ $ rg component <type> <componentName> [options]
     - acceptable values:
       - `js`
       - `jsx`
-      - `ts`
       - `tsx`
     - default value: `js`
