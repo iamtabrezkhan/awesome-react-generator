@@ -52,7 +52,7 @@ const runTests = (testFile) =>
         children.splice(index, 1);
       }
       if (code || signal) {
-        reject(new Error(`something bad happend ${code || signal}`));
+        reject(new Error(`something bad happened ${code || signal}`));
       } else {
         resolve();
       }

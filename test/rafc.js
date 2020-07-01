@@ -12,7 +12,7 @@ const deepEqualInAnyOrder = require("deep-equal-in-any-order");
 chai.use(deepEqualInAnyOrder);
 
 const tempDir = "test/rafc";
-const rg = "./bin/react-generator.js";
+const rg = utils.resolvePath("./bin/react-generator.js");
 console.log("RG: ", rg);
 
 before("create temp folder", () => {
