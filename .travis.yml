@@ -5,4 +5,9 @@ cache:
   directories:
     - "node_modules"
 install: npm install
-script: npm test
+script:
+  - cd test
+  - ls -la
+  - cd rafc
+  - ls -la
+  - npm test
