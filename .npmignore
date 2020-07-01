@@ -3,3 +3,4 @@ docs/
 .eslintrc.js
 .prettierrc.js
 test/
+mocha-parallel.js
