@@ -1,6 +1,5 @@
 const support = require("./support/utils");
 const utils = require("../lib/utils");
-const rg = "../../bin/react-generator.js";
 const { spawnSync } = require("child_process");
 const chai = require("chai");
 const { assert, expect } = chai;
@@ -12,6 +11,8 @@ const deepEqualInAnyOrder = require("deep-equal-in-any-order");
 chai.use(deepEqualInAnyOrder);
 
 const tempDir = "test/rafc";
+const rg = utils.resolvePath("../../bin/react-generator.js");
+console.log("RG: ", rg);
 
 before("create temp folder", () => {
   utils.createFolder("test", "rafc");
