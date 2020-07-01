@@ -1,13 +1,15 @@
 const rimraf = require("rimraf");
 const fs = require("fs");
 const path = require("path");
+const utils = require("../../lib/utils");
 
 exports.removeFolder = (dir, folderName) => {
-  if (!fs.existsSync(dir)) {
-    throw new Error(`dir -> ${dir}: does not exist!`);
+  const d = utils.resolvePath(dir);
+  if (!fs.existsSync(d)) {
+    throw new Error(`dir -> ${d}: does not exist!`);
     return;
   }
-  const dest = path.join(dir, folderName);
+  const dest = path.join(d, folderName);
   rimraf.sync(dest);
 };
 

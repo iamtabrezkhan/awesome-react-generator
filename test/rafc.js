@@ -11,9 +11,9 @@ const deepEqualInAnyOrder = require("deep-equal-in-any-order");
 
 chai.use(deepEqualInAnyOrder);
 
-const tempDir = "test/rafc";
+const tempDir = utils.resolvePath("./test/rafc");
 const rg = utils.resolvePath("./bin/react-generator.js");
-console.log("RG: ", rg);
+console.log("TESTDIR: ", tempDir);
 
 before("create temp folder", () => {
   utils.createFolder("test", "rafc");
@@ -41,8 +41,10 @@ describe("component command", () => {
       const nodeProcess = spawnSync("node", [rg, "c", "rafc", componentName], {
         cwd: tempDir,
       });
-      console.log(`STDOUT: ${nodeProcess.stdout}`);
-      console.log(`STDERR: ${nodeProcess.stderr}`);
+      const nodeProcess1 = spawnSync("pwd", {
+        cwd: tempDir,
+      });
+      console.log("CWD: ", nodeProcess1.stdout);
       const tempContents = support.getDirContents(tempDir);
       assert.equal(tempContents.length, 1);
       const componentContents = support.getDirContents(
