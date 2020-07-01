@@ -20,8 +20,10 @@ describe("component command", () => {
   // ========================================
   const componentName = "hello-world";
   const pascalName = utils.kebabCaseToPascalCase(componentName);
-  const componentFileName = `${pascalName}.js`;
+  const componentFileNameJS = `${pascalName}.js`;
   const componentFileNameJSX = `${pascalName}.jsx`;
+  const componentFileNameTS = `${pascalName}.ts`;
+  const componentFileNameTSX = `${pascalName}.tsx`;
   const cssFileNameNormal = `${pascalName}.css`;
   const cssFileNameModular = `${pascalName}.module.css`;
   const testFileNameJS = `${pascalName}.test.js`;
@@ -55,7 +57,7 @@ describe("component command", () => {
         `${tempDir}/${pascalName}`
       );
       expect(componentContents).to.deep.equalInAnyOrder([
-        componentFileName,
+        componentFileNameJS,
         cssFileNameNormal,
       ]);
     });
@@ -94,7 +96,7 @@ describe("component command", () => {
         `${tempDir}/${pascalName}`
       );
       expect(componentContents).to.deep.equalInAnyOrder([
-        componentFileName,
+        componentFileNameJS,
         cssFileNameModular,
       ]);
     });
@@ -133,7 +135,7 @@ describe("component command", () => {
         `${tempDir}/${pascalName}`
       );
       expect(componentContents).to.deep.equalInAnyOrder([
-        componentFileName,
+        componentFileNameJS,
         cssFileNameNormal,
         testFileNameJS,
       ]);
@@ -173,7 +175,7 @@ describe("component command", () => {
         `${tempDir}/${pascalName}`
       );
       expect(componentContents).to.deep.equalInAnyOrder([
-        componentFileName,
+        componentFileNameJS,
         cssFileNameNormal,
         testFileNameTSX,
       ]);
@@ -213,7 +215,7 @@ describe("component command", () => {
         `${tempDir}/${pascalName}`
       );
       expect(componentContents).to.deep.equalInAnyOrder([
-        componentFileName,
+        componentFileNameJS,
         cssFileNameNormal,
         specFileNameJS,
       ]);
@@ -253,7 +255,7 @@ describe("component command", () => {
         `${tempDir}/${pascalName}`
       );
       expect(componentContents).to.deep.equalInAnyOrder([
-        componentFileName,
+        componentFileNameJS,
         cssFileNameNormal,
         specFileNameTSX,
       ]);
@@ -294,6 +296,84 @@ describe("component command", () => {
       );
       expect(componentContents).to.deep.equalInAnyOrder([
         componentFileNameJSX,
+        cssFileNameNormal,
+      ]);
+    });
+  });
+  // ========================================
+  describe(`rg c rafcp ${componentName} --ext ts`, () => {
+    afterEach(() => {
+      support.removeFolder(tempDir, pascalName);
+    });
+    it("should create correct number of files/folders", () => {
+      const nodeProcess = spawnSync(
+        "node",
+        [rg, "c", "rafcp", componentName, "--ext", "ts"],
+        {
+          cwd: tempDir,
+        }
+      );
+      const tempContents = support.getDirContents(tempDir);
+      assert.equal(tempContents.length, 1);
+      const componentContents = support.getDirContents(
+        `${tempDir}/${pascalName}`
+      );
+      assert.equal(componentContents.length, 2);
+    });
+    it("should create correct name of files/folders", () => {
+      const nodeProcess = spawnSync(
+        "node",
+        [rg, "c", "rafcp", componentName, "--ext", "ts"],
+        {
+          cwd: tempDir,
+        }
+      );
+      const tempContents = support.getDirContents(tempDir);
+      assert.deepEqual(tempContents, [pascalName]);
+      const componentContents = support.getDirContents(
+        `${tempDir}/${pascalName}`
+      );
+      expect(componentContents).to.deep.equalInAnyOrder([
+        componentFileNameTS,
+        cssFileNameNormal,
+      ]);
+    });
+  });
+  // ========================================
+  describe(`rg c rafcp ${componentName} --ext tsx`, () => {
+    afterEach(() => {
+      support.removeFolder(tempDir, pascalName);
+    });
+    it("should create correct number of files/folders", () => {
+      const nodeProcess = spawnSync(
+        "node",
+        [rg, "c", "rafcp", componentName, "--ext", "tsx"],
+        {
+          cwd: tempDir,
+        }
+      );
+      const tempContents = support.getDirContents(tempDir);
+      assert.equal(tempContents.length, 1);
+      const componentContents = support.getDirContents(
+        `${tempDir}/${pascalName}`
+      );
+      assert.equal(componentContents.length, 2);
+    });
+    it("should create correct name of files/folders", () => {
+      const nodeProcess = spawnSync(
+        "node",
+        [rg, "c", "rafcp", componentName, "--ext", "tsx"],
+        {
+          cwd: tempDir,
+        }
+      );
+      const tempContents = support.getDirContents(tempDir);
+      assert.deepEqual(tempContents, [pascalName]);
+      const componentContents = support.getDirContents(
+        `${tempDir}/${pascalName}`
+      );
+      expect(componentContents).to.deep.equalInAnyOrder([
+        componentFileNameTSX,
         cssFileNameNormal,
       ]);
     });
