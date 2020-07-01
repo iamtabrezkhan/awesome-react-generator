@@ -38,6 +38,7 @@ describe("component command", () => {
       const nodeProcess = spawnSync("node", [rg, "c", "rafc", componentName], {
         cwd: tempDir,
       });
+      console.log(__dirname);
       const tempContents = support.getDirContents(tempDir);
       assert.equal(tempContents.length, 1);
       const componentContents = support.getDirContents(
