@@ -11,7 +11,8 @@ const deepEqualInAnyOrder = require("deep-equal-in-any-order");
 
 chai.use(deepEqualInAnyOrder);
 
-const tempDir = utils.resolvePath("./test/rafc");
+// const tempDir = utils.resolvePath("./test/rafc");
+const tempDir = "test/rafc";
 const rg = utils.resolvePath("./bin/react-generator.js");
 console.log("TESTDIR: ", tempDir);
 
