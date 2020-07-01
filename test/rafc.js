@@ -4,6 +4,7 @@ const { spawnSync } = require("child_process");
 const chai = require("chai");
 const { assert, expect } = chai;
 const should = chai.should();
+const path = require("path");
 
 // Chai plugins
 const deepEqualInAnyOrder = require("deep-equal-in-any-order");
@@ -11,7 +12,9 @@ const deepEqualInAnyOrder = require("deep-equal-in-any-order");
 chai.use(deepEqualInAnyOrder);
 
 const tempDir = "test/rafc";
-const rg = utils.resolvePath("../../bin/react-generator.js");
+const rg = utils.resolvePath(
+  path.join(__dirname, "../../bin/react-generator.js")
+);
 console.log("RG: ", rg);
 
 before("create temp folder", () => {
