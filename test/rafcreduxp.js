@@ -13,11 +13,10 @@ chai.use(deepEqualInAnyOrder);
 
 const tempDir = "test/rafcreduxp";
 
-before("create temp folder", () => {
-  utils.createFolder("test", "rafcreduxp");
-});
-
 describe("component command", () => {
+  before("create temp folder", () => {
+    utils.createFolder("test", "rafcreduxp");
+  });
   // ========================================
   const componentName = "hello-world";
   const pascalName = utils.kebabCaseToPascalCase(componentName);
@@ -355,8 +354,7 @@ describe("component command", () => {
       ]);
     });
   });
-});
-
-after("remove temp folder", () => {
-  support.removeFolder("test", "rafcreduxp");
+  after("remove temp folder", () => {
+    support.removeFolder("test", "rafcreduxp");
+  });
 });

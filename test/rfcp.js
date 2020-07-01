@@ -13,11 +13,10 @@ chai.use(deepEqualInAnyOrder);
 
 const tempDir = "test/rfcp";
 
-before("create temp folder", () => {
-  utils.createFolder("test", "rfcp");
-});
-
 describe("component command", () => {
+  before("create temp folder", () => {
+    utils.createFolder("test", "rfcp");
+  });
   // ========================================
   const componentName = "hello-world";
   const pascalName = utils.kebabCaseToPascalCase(componentName);
@@ -299,8 +298,7 @@ describe("component command", () => {
       ]);
     });
   });
-});
-
-after("remove temp folder", () => {
-  support.removeFolder("test", "rfcp");
+  after("remove temp folder", () => {
+    support.removeFolder("test", "rfcp");
+  });
 });

@@ -13,11 +13,10 @@ chai.use(deepEqualInAnyOrder);
 
 const tempDir = "test/rfcredux";
 
-before("create temp folder", () => {
-  utils.createFolder("test", "rfcredux");
-});
-
 describe("component command", () => {
+  before("create temp folder", () => {
+    utils.createFolder("test", "rfcredux");
+  });
   // ========================================
   const componentName = "hello-world";
   const pascalName = utils.kebabCaseToPascalCase(componentName);
@@ -307,8 +306,7 @@ describe("component command", () => {
       ]);
     });
   });
-});
-
-after("remove temp folder", () => {
-  support.removeFolder("test", "rfcredux");
+  after("remove temp folder", () => {
+    support.removeFolder("test", "rfcredux");
+  });
 });
