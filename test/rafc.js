@@ -13,10 +13,11 @@ chai.use(deepEqualInAnyOrder);
 
 const tempDir = "test/rafc";
 
+before("create temp folder", () => {
+  utils.createFolder("test", "rafc");
+});
+
 describe("component command", () => {
-  before("create temp folder", () => {
-    utils.createFolder("test", "rafc");
-  });
   // ========================================
   const componentName = "hello-world";
   const pascalName = utils.kebabCaseToPascalCase(componentName);
@@ -38,7 +39,8 @@ describe("component command", () => {
       const nodeProcess = spawnSync("node", [rg, "c", "rafc", componentName], {
         cwd: tempDir,
       });
-      console.log(__dirname);
+      console.log(`STDOUT: ${nodeProcess.stdout}`);
+      console.log(`STDERR: ${nodeProcess.stderr}`);
       const tempContents = support.getDirContents(tempDir);
       assert.equal(tempContents.length, 1);
       const componentContents = support.getDirContents(
@@ -299,7 +301,8 @@ describe("component command", () => {
       ]);
     });
   });
-  after("remove temp folder", () => {
-    support.removeFolder("test", "rafc");
-  });
+});
+
+after("remove temp folder", () => {
+  support.removeFolder("test", "rafc");
 });
