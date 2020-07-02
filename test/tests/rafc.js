@@ -1,45 +1,34 @@
-const support = require("./support/utils");
-const utils = require("../lib/utils");
+const support = require("../support/utils");
+const utils = require("../../lib/utils");
 const rg = "../../bin/react-generator.js";
 const { spawnSync } = require("child_process");
 const chai = require("chai");
 const { assert, expect } = chai;
 const should = chai.should();
+const { fileNames } = require("../support/constants");
 
 // Chai plugins
 const deepEqualInAnyOrder = require("deep-equal-in-any-order");
 
 chai.use(deepEqualInAnyOrder);
 
-const tempDir = "test/rafcreduxp";
+const tempDir = "test/rafc";
 
 describe("component command", () => {
   before("create temp folder", () => {
-    utils.createFolder("test", "rafcreduxp");
+    utils.createFolder("test", "rafc");
   });
   // ========================================
-  const componentName = "hello-world";
-  const pascalName = utils.kebabCaseToPascalCase(componentName);
-  const componentFileNameJS = `${pascalName}.js`;
-  const componentFileNameJSX = `${pascalName}.jsx`;
-  const componentFileNameTS = `${pascalName}.ts`;
-  const componentFileNameTSX = `${pascalName}.tsx`;
-  const cssFileNameNormal = `${pascalName}.css`;
-  const cssFileNameModular = `${pascalName}.module.css`;
-  const testFileNameJS = `${pascalName}.test.js`;
-  const testFileNameTSX = `${pascalName}.test.tsx`;
-  const specFileNameJS = `${pascalName}.spec.js`;
-  const specFileNameTSX = `${pascalName}.spec.tsx`;
   // ========================================
-  describe(`rg c rafcreduxp ${componentName}`, () => {
+  describe(`rg c rafc ${fileNames.component.name}`, () => {
     afterEach(() => {
-      support.removeFolder(tempDir, pascalName);
+      support.removeFolder(tempDir, fileNames.component.pascalName);
     });
     // ======================================
     it("should create correct number of files/folders", () => {
       const nodeProcess = spawnSync(
         "node",
-        [rg, "c", "rafcreduxp", componentName],
+        [rg, "c", "rafc", fileNames.component.name],
         {
           cwd: tempDir,
         }
@@ -47,38 +36,38 @@ describe("component command", () => {
       const tempContents = support.getDirContents(tempDir);
       assert.equal(tempContents.length, 1);
       const componentContents = support.getDirContents(
-        `${tempDir}/${pascalName}`
+        `${tempDir}/${fileNames.component.pascalName}`
       );
       assert.equal(componentContents.length, 2);
     });
     it("should create correct name of files/folders", () => {
       const nodeProcess = spawnSync(
         "node",
-        [rg, "c", "rafcreduxp", componentName],
+        [rg, "c", "rafc", fileNames.component.name],
         {
           cwd: tempDir,
         }
       );
       const tempContents = support.getDirContents(tempDir);
-      assert.deepEqual(tempContents, [pascalName]);
+      assert.deepEqual(tempContents, [fileNames.component.pascalName]);
       const componentContents = support.getDirContents(
-        `${tempDir}/${pascalName}`
+        `${tempDir}/${fileNames.component.pascalName}`
       );
       expect(componentContents).to.deep.equalInAnyOrder([
-        componentFileNameJS,
-        cssFileNameNormal,
+        fileNames.component.js,
+        fileNames.css.normal,
       ]);
     });
   });
   // ========================================
-  describe(`rg c rafcreduxp ${componentName} --cssType modular`, () => {
+  describe(`rg c rafc ${fileNames.component.name} --cssType modular`, () => {
     afterEach(() => {
-      support.removeFolder(tempDir, pascalName);
+      support.removeFolder(tempDir, fileNames.component.pascalName);
     });
     it("should create correct number of files/folders", () => {
       const nodeProcess = spawnSync(
         "node",
-        [rg, "c", "rafcreduxp", componentName, "--cssType", "modular"],
+        [rg, "c", "rafc", fileNames.component.name, "--cssType", "modular"],
         {
           cwd: tempDir,
         }
@@ -86,38 +75,38 @@ describe("component command", () => {
       const tempContents = support.getDirContents(tempDir);
       assert.equal(tempContents.length, 1);
       const componentContents = support.getDirContents(
-        `${tempDir}/${pascalName}`
+        `${tempDir}/${fileNames.component.pascalName}`
       );
       assert.equal(componentContents.length, 2);
     });
     it("should create correct name of files/folders", () => {
       const nodeProcess = spawnSync(
         "node",
-        [rg, "c", "rafcreduxp", componentName, "--cssType", "modular"],
+        [rg, "c", "rafc", fileNames.component.name, "--cssType", "modular"],
         {
           cwd: tempDir,
         }
       );
       const tempContents = support.getDirContents(tempDir);
-      assert.deepEqual(tempContents, [pascalName]);
+      assert.deepEqual(tempContents, [fileNames.component.pascalName]);
       const componentContents = support.getDirContents(
-        `${tempDir}/${pascalName}`
+        `${tempDir}/${fileNames.component.pascalName}`
       );
       expect(componentContents).to.deep.equalInAnyOrder([
-        componentFileNameJS,
-        cssFileNameModular,
+        fileNames.component.js,
+        fileNames.css.modular,
       ]);
     });
   });
   // ========================================
-  describe(`rg c rafcreduxp ${componentName} --test`, () => {
+  describe(`rg c rafc ${fileNames.component.name} --test`, () => {
     afterEach(() => {
-      support.removeFolder(tempDir, pascalName);
+      support.removeFolder(tempDir, fileNames.component.pascalName);
     });
     it("should create correct number of files/folders", () => {
       const nodeProcess = spawnSync(
         "node",
-        [rg, "c", "rafcreduxp", componentName, "--test"],
+        [rg, "c", "rafc", fileNames.component.name, "--test"],
         {
           cwd: tempDir,
         }
@@ -125,34 +114,34 @@ describe("component command", () => {
       const tempContents = support.getDirContents(tempDir);
       assert.equal(tempContents.length, 1);
       const componentContents = support.getDirContents(
-        `${tempDir}/${pascalName}`
+        `${tempDir}/${fileNames.component.pascalName}`
       );
       assert.equal(componentContents.length, 3);
     });
     it("should create correct name of files/folders", () => {
       const nodeProcess = spawnSync(
         "node",
-        [rg, "c", "rafcreduxp", componentName, "--test"],
+        [rg, "c", "rafc", fileNames.component.name, "--test"],
         {
           cwd: tempDir,
         }
       );
       const tempContents = support.getDirContents(tempDir);
-      assert.deepEqual(tempContents, [pascalName]);
+      assert.deepEqual(tempContents, [fileNames.component.pascalName]);
       const componentContents = support.getDirContents(
-        `${tempDir}/${pascalName}`
+        `${tempDir}/${fileNames.component.pascalName}`
       );
       expect(componentContents).to.deep.equalInAnyOrder([
-        componentFileNameJS,
-        cssFileNameNormal,
-        testFileNameJS,
+        fileNames.component.js,
+        fileNames.css.normal,
+        fileNames.test.js,
       ]);
     });
   });
   // ========================================
-  describe(`rg c rafcreduxp ${componentName} --test --testExt test-tsx`, () => {
+  describe(`rg c rafc ${fileNames.component.name} --test --testExt test-tsx`, () => {
     afterEach(() => {
-      support.removeFolder(tempDir, pascalName);
+      support.removeFolder(tempDir, fileNames.component.pascalName);
     });
     it("should create correct number of files/folders", () => {
       const nodeProcess = spawnSync(
@@ -160,8 +149,8 @@ describe("component command", () => {
         [
           rg,
           "c",
-          "rafcreduxp",
-          componentName,
+          "rafc",
+          fileNames.component.name,
           "--test",
           "--testExt",
           "test-tsx",
@@ -173,7 +162,7 @@ describe("component command", () => {
       const tempContents = support.getDirContents(tempDir);
       assert.equal(tempContents.length, 1);
       const componentContents = support.getDirContents(
-        `${tempDir}/${pascalName}`
+        `${tempDir}/${fileNames.component.pascalName}`
       );
       assert.equal(componentContents.length, 3);
     });
@@ -183,8 +172,8 @@ describe("component command", () => {
         [
           rg,
           "c",
-          "rafcreduxp",
-          componentName,
+          "rafc",
+          fileNames.component.name,
           "--test",
           "--testExt",
           "test-tsx",
@@ -194,21 +183,21 @@ describe("component command", () => {
         }
       );
       const tempContents = support.getDirContents(tempDir);
-      assert.deepEqual(tempContents, [pascalName]);
+      assert.deepEqual(tempContents, [fileNames.component.pascalName]);
       const componentContents = support.getDirContents(
-        `${tempDir}/${pascalName}`
+        `${tempDir}/${fileNames.component.pascalName}`
       );
       expect(componentContents).to.deep.equalInAnyOrder([
-        componentFileNameJS,
-        cssFileNameNormal,
-        testFileNameTSX,
+        fileNames.component.js,
+        fileNames.css.normal,
+        fileNames.test.tsx,
       ]);
     });
   });
   // ========================================
-  describe(`rg c rafcreduxp ${componentName} --test --testExt spec-js`, () => {
+  describe(`rg c rafc ${fileNames.component.name} --test --testExt spec-js`, () => {
     afterEach(() => {
-      support.removeFolder(tempDir, pascalName);
+      support.removeFolder(tempDir, fileNames.component.pascalName);
     });
     it("should create correct number of files/folders", () => {
       const nodeProcess = spawnSync(
@@ -216,8 +205,8 @@ describe("component command", () => {
         [
           rg,
           "c",
-          "rafcreduxp",
-          componentName,
+          "rafc",
+          fileNames.component.name,
           "--test",
           "--testExt",
           "spec-js",
@@ -229,7 +218,7 @@ describe("component command", () => {
       const tempContents = support.getDirContents(tempDir);
       assert.equal(tempContents.length, 1);
       const componentContents = support.getDirContents(
-        `${tempDir}/${pascalName}`
+        `${tempDir}/${fileNames.component.pascalName}`
       );
       assert.equal(componentContents.length, 3);
     });
@@ -239,8 +228,8 @@ describe("component command", () => {
         [
           rg,
           "c",
-          "rafcreduxp",
-          componentName,
+          "rafc",
+          fileNames.component.name,
           "--test",
           "--testExt",
           "spec-js",
@@ -250,21 +239,21 @@ describe("component command", () => {
         }
       );
       const tempContents = support.getDirContents(tempDir);
-      assert.deepEqual(tempContents, [pascalName]);
+      assert.deepEqual(tempContents, [fileNames.component.pascalName]);
       const componentContents = support.getDirContents(
-        `${tempDir}/${pascalName}`
+        `${tempDir}/${fileNames.component.pascalName}`
       );
       expect(componentContents).to.deep.equalInAnyOrder([
-        componentFileNameJS,
-        cssFileNameNormal,
-        specFileNameJS,
+        fileNames.component.js,
+        fileNames.css.normal,
+        fileNames.test.specJs,
       ]);
     });
   });
   // ========================================
-  describe(`rg c rafcreduxp ${componentName} --test --testExt spec-tsx`, () => {
+  describe(`rg c rafc ${fileNames.component.name} --test --testExt spec-tsx`, () => {
     afterEach(() => {
-      support.removeFolder(tempDir, pascalName);
+      support.removeFolder(tempDir, fileNames.component.pascalName);
     });
     it("should create correct number of files/folders", () => {
       const nodeProcess = spawnSync(
@@ -272,8 +261,8 @@ describe("component command", () => {
         [
           rg,
           "c",
-          "rafcreduxp",
-          componentName,
+          "rafc",
+          fileNames.component.name,
           "--test",
           "--testExt",
           "spec-tsx",
@@ -285,7 +274,7 @@ describe("component command", () => {
       const tempContents = support.getDirContents(tempDir);
       assert.equal(tempContents.length, 1);
       const componentContents = support.getDirContents(
-        `${tempDir}/${pascalName}`
+        `${tempDir}/${fileNames.component.pascalName}`
       );
       assert.equal(componentContents.length, 3);
     });
@@ -295,8 +284,8 @@ describe("component command", () => {
         [
           rg,
           "c",
-          "rafcreduxp",
-          componentName,
+          "rafc",
+          fileNames.component.name,
           "--test",
           "--testExt",
           "spec-tsx",
@@ -306,26 +295,26 @@ describe("component command", () => {
         }
       );
       const tempContents = support.getDirContents(tempDir);
-      assert.deepEqual(tempContents, [pascalName]);
+      assert.deepEqual(tempContents, [fileNames.component.pascalName]);
       const componentContents = support.getDirContents(
-        `${tempDir}/${pascalName}`
+        `${tempDir}/${fileNames.component.pascalName}`
       );
       expect(componentContents).to.deep.equalInAnyOrder([
-        componentFileNameJS,
-        cssFileNameNormal,
-        specFileNameTSX,
+        fileNames.component.js,
+        fileNames.css.normal,
+        fileNames.test.specTsx,
       ]);
     });
   });
   // ========================================
-  describe(`rg c rafcreduxp ${componentName} --ext jsx`, () => {
+  describe(`rg c rafc ${fileNames.component.name} --ext jsx`, () => {
     afterEach(() => {
-      support.removeFolder(tempDir, pascalName);
+      support.removeFolder(tempDir, fileNames.component.pascalName);
     });
     it("should create correct number of files/folders", () => {
       const nodeProcess = spawnSync(
         "node",
-        [rg, "c", "rafcreduxp", componentName, "--ext", "jsx"],
+        [rg, "c", "rafc", fileNames.component.name, "--ext", "jsx"],
         {
           cwd: tempDir,
         }
@@ -333,38 +322,38 @@ describe("component command", () => {
       const tempContents = support.getDirContents(tempDir);
       assert.equal(tempContents.length, 1);
       const componentContents = support.getDirContents(
-        `${tempDir}/${pascalName}`
+        `${tempDir}/${fileNames.component.pascalName}`
       );
       assert.equal(componentContents.length, 2);
     });
     it("should create correct name of files/folders", () => {
       const nodeProcess = spawnSync(
         "node",
-        [rg, "c", "rafcreduxp", componentName, "--ext", "jsx"],
+        [rg, "c", "rafc", fileNames.component.name, "--ext", "jsx"],
         {
           cwd: tempDir,
         }
       );
       const tempContents = support.getDirContents(tempDir);
-      assert.deepEqual(tempContents, [pascalName]);
+      assert.deepEqual(tempContents, [fileNames.component.pascalName]);
       const componentContents = support.getDirContents(
-        `${tempDir}/${pascalName}`
+        `${tempDir}/${fileNames.component.pascalName}`
       );
       expect(componentContents).to.deep.equalInAnyOrder([
-        componentFileNameJSX,
-        cssFileNameNormal,
+        fileNames.component.jsx,
+        fileNames.css.normal,
       ]);
     });
   });
   // ========================================
-  describe(`rg c rafcreduxp ${componentName} --ext tsx`, () => {
+  describe(`rg c rafc ${fileNames.component.name} --ext tsx`, () => {
     afterEach(() => {
-      support.removeFolder(tempDir, pascalName);
+      support.removeFolder(tempDir, fileNames.component.pascalName);
     });
     it("should create correct number of files/folders", () => {
       const nodeProcess = spawnSync(
         "node",
-        [rg, "c", "rafcreduxp", componentName, "--ext", "tsx"],
+        [rg, "c", "rafc", fileNames.component.name, "--ext", "tsx"],
         {
           cwd: tempDir,
         }
@@ -372,30 +361,30 @@ describe("component command", () => {
       const tempContents = support.getDirContents(tempDir);
       assert.equal(tempContents.length, 1);
       const componentContents = support.getDirContents(
-        `${tempDir}/${pascalName}`
+        `${tempDir}/${fileNames.component.pascalName}`
       );
       assert.equal(componentContents.length, 2);
     });
     it("should create correct name of files/folders", () => {
       const nodeProcess = spawnSync(
         "node",
-        [rg, "c", "rafcreduxp", componentName, "--ext", "tsx"],
+        [rg, "c", "rafc", fileNames.component.name, "--ext", "tsx"],
         {
           cwd: tempDir,
         }
       );
       const tempContents = support.getDirContents(tempDir);
-      assert.deepEqual(tempContents, [pascalName]);
+      assert.deepEqual(tempContents, [fileNames.component.pascalName]);
       const componentContents = support.getDirContents(
-        `${tempDir}/${pascalName}`
+        `${tempDir}/${fileNames.component.pascalName}`
       );
       expect(componentContents).to.deep.equalInAnyOrder([
-        componentFileNameTSX,
-        cssFileNameNormal,
+        fileNames.component.tsx,
+        fileNames.css.normal,
       ]);
     });
   });
   after("remove temp folder", () => {
-    support.removeFolder("test", "rafcreduxp");
+    support.removeFolder("test", "rafc");
   });
 });

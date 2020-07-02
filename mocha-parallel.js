@@ -59,7 +59,7 @@ const runTests = (testFile) =>
     });
   });
 
-glob("test/**/*.js")
+glob("test/tests/**/*.js")
   .then((testFiles) => {
     return Promise.all(testFiles.map(runTests));
   })
