@@ -18,3 +18,7 @@ exports.getDirContents = (dir) => {
 exports.getDirContentsCount = (dir) => {
   return this.getDirContents(dir).length;
 };
+
+exports.removeFile = (path) => {
+  rimraf.sync(path);
+};

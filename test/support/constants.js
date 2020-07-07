@@ -2,7 +2,7 @@ const utils = require("../../lib/utils");
 
 const componentName = "hello-world";
 const pascalName = utils.kebabCaseToPascalCase(componentName);
-
+const privateRoute = "PrivateRoute";
 exports.fileNames = {
   component: {
     name: componentName,
@@ -10,6 +10,14 @@ exports.fileNames = {
     js: `${pascalName}.js`,
     jsx: `${pascalName}.jsx`,
     tsx: `${pascalName}.tsx`,
+  },
+  route: {
+    js: `${privateRoute}.js`,
+    jsx: `${privateRoute}.jsx`,
+    test: {
+      js: `${privateRoute}.test.js`,
+      specJs: `${privateRoute}.spec.js`,
+    },
   },
   css: {
     normal: `${pascalName}.css`,
