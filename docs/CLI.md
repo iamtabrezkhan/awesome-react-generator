@@ -57,3 +57,37 @@ $ rg component <type> <componentName> [options]
       - `jsx`
       - `tsx`
     - default value: `js`
+
+
+### route
+
+This will generate a react component named PrivateRoute in the current working directory and the options file.
+
+```bash
+$ rg route <type> [options]
+```
+
+- **Arguments:**
+  - `type` - the type of component
+    - acceptable values:
+      - `pr` - private route component
+      - **more types coming soon**
+- **Options:**
+  - `--test` - decides if you want to generate a test file along with the private route component file.
+    - acceptable values:
+      - `true`
+      - `false`
+    - default value: `false`
+  - `--testExt` - test file extension type
+    - acceptable values:
+      - `test-js`
+      - `spec-js`
+    - default value: `test-js`
+  - `--cwd` - pass a string if you want to change the current working directory.
+    - acceptable values:
+      - string
+  - `--ext` - component file extension type
+    - acceptable values:
+      - `js`
+      - `jsx`
+    - default value: `js`
