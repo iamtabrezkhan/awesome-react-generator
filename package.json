@@ -41,7 +41,7 @@
     "chai": "^4.2.0",
     "deep-equal-in-any-order": "^1.0.27",
     "glob": "^7.1.6",
-    "mocha": "^8.0.1",
+    "mocha": "^8.1.1",
     "rimraf": "^3.0.2",
     "yargs-unparser": "^1.6.3"
   }
