@@ -42,12 +42,15 @@ rg component rfc hello-world
 Check out the commands [here](docs/CLI.md)
 
 ## Override CLI options
+
 Let's say you don't want to pass `--test` option every time you want to generate a component with test file.
 You can create a config file `.rgrc.js` at the root of your project to override CLI options.
 
 Example below:
+
 ```js
-/* this will generate test file with .spec.js extension and modular css file for every generated component */
+/* this will generate test file with .spec.js extension
+and modular css file for every generated component */
 module.exports = {
   component: {
     options: {
@@ -58,15 +61,18 @@ module.exports = {
   },
 };
 ```
+
 or
 
 ```js
-/* this will generate test file with .spec.js extension and modular css file for every generated component but for rfc type component it will generate test file with extension .test.js and normal css file */
+/* this will generate test file with .spec.js extension and modular
+css file for every generated component but for rfc type component it
+will generate test file with extension .test.js and normal css file */
 module.exports = {
   component: {
     rfc: {
-      testExt: 'test-js',
-      cssType: 'normal',
+      testExt: "test-js",
+      cssType: "normal",
     },
     options: {
       test: true,
