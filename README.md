@@ -20,7 +20,7 @@
 > No more clicking around to create files in your react project! Awesome React Generator is Command Line Tool that let's you generate component files/folders without leaving your terminal.
 
 <p align="center">
-  <img src="demo.gif">
+  <img src="docs/demo.gif">
 </p>
 
 ### 🏠 [Homepage](https://github.com/iamtabrezkhan/awesome-react-generator)
@@ -40,6 +40,42 @@ rg component rfc hello-world
 ## Commands
 
 Check out the commands [here](docs/CLI.md)
+
+## Override CLI options
+Let's say you don't want to pass `--test` option every time you want to generate a component with test file.
+You can create a config file `.rgrc.js` at the root of your project to override CLI options.
+
+Example below:
+```js
+/* this will generate test file with .spec.js extension and modular css file for every generated component */
+module.exports = {
+  component: {
+    options: {
+      test: true,
+      cssType: "modular",
+      testExt: "spec-js",
+    },
+  },
+};
+```
+or
+
+```js
+/* this will generate test file with .spec.js extension and modular css file for every generated component but for rfc type component it will generate test file with extension .test.js and normal css file */
+module.exports = {
+  component: {
+    rfc: {
+      testExt: 'test-js',
+      cssType: 'normal',
+    },
+    options: {
+      test: true,
+      cssType: "modular",
+      testExt: "spec-js",
+    },
+  },
+};
+```
 
 ## Help
 
