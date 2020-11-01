@@ -1,7 +1,0 @@
-import React from "react";
-
-const <<<cmpname>>> = () => {
-  return <div><<<cmpname>>> works!</div>;
-};
-
-export default <<<cmpname>>>;

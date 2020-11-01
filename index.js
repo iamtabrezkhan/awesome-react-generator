@@ -1,6 +1,5 @@
 const utils = require("./lib/utils");
 const Runner = require("awesome-task-runner");
-const path = require("path");
 const colors = require("ansi-colors");
 
 class ReactGenerator {
@@ -10,31 +9,35 @@ class ReactGenerator {
   }
   initializeGeneralTasks(runner) {
     // ============== general tasks ====================
-    runner.task("get:template", function (done) {
-      const templateName = runner.get("templateName");
-      const template = utils.getTemplate(templateName);
-      runner.set({ template });
-      done();
-    });
-    runner.task("clean", (done) => {
+    runner.task("clean", done => {
       runner.clear();
       done();
     });
-    runner.task("create:folder", (done) => {
-      const { folderName, folderDest } = runner.data;
-      utils.createFolder(folderDest, folderName);
-      console.log(
-        colors.greenBright(`Created: ${path.join(folderDest, folderName)}`)
-      );
+    runner.task("create:folder", done => {
+      const { folderDest } = runner.data;
+      const didCreateFolder = utils.createFolder(folderDest);
+      if (!didCreateFolder) {
+        throw new Error(colors.redBright(`Already exists: ${folderDest}\n`));
+      }
+      console.log(colors.greenBright(`Created: ${folderDest}`));
       done();
     });
-    runner.task("create:file", (done) => {
-      const { fileName, fileDest, fileData, ext } = runner.data;
-      utils.createFile(fileDest, `${fileName}${ext}`, fileData);
-      console.log(
-        colors.greenBright(`Created: ${path.join(fileDest, fileName + ext)}`)
-      );
-      done();
+    runner.task("render:file", done => {
+      const { filePath, fileDest } = runner.data;
+      const { componentPascalName, options } = runner.data;
+      utils
+        .renderFile(
+          filePath,
+          { componentName: componentPascalName, ...options },
+          fileDest
+        )
+        .then(destPath => {
+          console.log(colors.greenBright(`Created: ${destPath}`));
+          done();
+        })
+        .catch(err => {
+          throw err;
+        });
     });
   }
 
@@ -43,7 +46,7 @@ class ReactGenerator {
   }
 
   run(task) {
-    this.runner.run(["get:template", task, "clean"], (err) => {
+    this.runner.run([task, "clean"], err => {
       if (err) return console.log(err);
     });
   }
