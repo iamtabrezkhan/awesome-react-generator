@@ -1,9 +1,0 @@
-import React, { Component } from "react";
-
-class <<<cmpname>>> extends Component {
-  render() {
-    return <div><<<cmpname>>> works!</div>;
-  }
-}
-
-export default <<<cmpname>>>;

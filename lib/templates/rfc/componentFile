@@ -1,7 +1,7 @@
 <% if(ext && (ext === 'js' || ext === 'jsx')) { -%>
 import React from "react";
 <% if(cssType && cssType === 'modular') { -%>
-import classes from './<%=componentName%>.<%=css%>';
+import classes from './<%=componentName%>.module.<%=css%>';
 <% } else { -%>
 import './<%=componentName%>.<%=css%>'
 <% } -%>
